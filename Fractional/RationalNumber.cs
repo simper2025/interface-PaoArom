@@ -13,8 +13,15 @@ namespace Fractional
 
         public RationalNumber(int num, int denom)
         {
+            
             numerator = num;
             denominator = denom;
+
+            if (denominator < 0)
+            {
+                denominator = -denominator;
+                numerator = -numerator;
+            }
 
             var gcd = GreatestCommonDenominator(numerator, denominator);
             numerator /= gcd;
